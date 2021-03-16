@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Caculator Project 💪</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="display" style="z-index: 1; position: absolute; top: 0px; left: 0px;" >
+    <h1 id="num1"></h1>
+<h1 id="operator"></h1>
+<h1 id="yolo" ></h1>
+<h1 id="result"></h1>    
+<h1 id="decimal"></h1>    
+
+        
+
+    </h1>
+    <div style="z-index: 2; position: absolute; top: 100px; left: 0px;" id="Supercontainer"> 
+
+    <div class="container1">
+        <button id="1"> 1</button>
+        <button id="2"> 2</button>
+        <button id="3" > 3 </button>
+        <button id="4">4 </button>
+        <button id="5">5</button>
+        <button id="6">6 </button>
+        <button id="7">7 </button>
+        <button id="8"> 8</button>
+        <button id="9"> 9</button>
+        <button id="0" >0 </button>
+        <button id="=" >=</button>
+        <button id="clear" >clear</button>
+        <button id="." >.</button>
+    </div>
+
+    <div class="container2">
+        <button id="+">+</button>
+        <button id="-">-</button>
+        <button id="/">/</button>
+        <button id="*">*</button>
+       
+    </div>
+
+</div>
+
+   
+
+    <script>
+        let operator=document.querySelector("#operator")
+        operator.value=""
+                let decimal=document.querySelector("#decimal")
+                decimal.value=""
+        let btn=Array.from(document.querySelectorAll('button'))
+        let container=document.querySelector("#display")
+        let result=document.querySelector("#result")
+        result.value=""
+        let para=document.querySelector("#num1")
+        para.textContent=""
+        let yep=document.querySelector("#yolo")
+
+       let yolo=  btn.forEach( btn=>btn.addEventListener("click",e=>e.target.id))
+
+        let display=function (){ btn.map(btn=>btn.addEventListener("click",function(e){
+            
+            let num=btn.id;
+
+            if(num==="+"||num==="-"||num==="*"||num==="/"){  if(result.value===""){operator.value=num
+     yep.value=para.textContent  
+             
+              }
+                   else{operator.value=num;
+              para.textContent=result.value
+              yep.value=para.textContent
+              result.value="" } }
+
+            else if(num==="="){console.log(result.value)
+              para.textContent=result.value
+            }
+            
+            else if(num==="clear"){
+              para.textContent=""
+              result.value=""
+              operator.value=""
+              yep.value=""
+            }
+            else if(operator.value==="+"||operator.value==="-"||operator.value==="*"||operator.value==="/"){
+                     if(result.value===""){para.textContent=""
+                     console.log("yolo")
+                    para.textContent+=num
+                     console.log(yep.value)
+                     result.value= operate(operator.value,yep.value,para.textContent)
+              
+                    }
+                     else{console.log("yolo")
+                    para.textContent+=num
+                    console.log(yep.value)
+                     result.value= operate(operator.value,yep.value,para.textContent)
+                    console.log(result.value)}
+                     }
+
+            else if(num==="."){
+                     if(decimal.value==="."){return}
+                     else {para.textContent+=num
+                       decimal.value="."}
+                 
+                 
+               }
+
+            else  {para.textContent+=num}
+
+        
+         
+        }))
+    
+    }
+
+  display()
+      
+ function divide(x,y){num1=parseFloat(x);
+    num2=parseFloat(y);
+    if(num2===0){return "Divinding by zero? Man, go back to scholl"}
+    let result= num1/num2;
+    let rounded= Math.round(result * 10) / 10;
+  return rounded; }
+function add (x,y) {num1=parseFloat(x);
+    num2=parseFloat(y);
+    let result= num1+num2;
+    let rounded= Math.round(result * 10) / 10;
+  return rounded; }
+function subtract (x,y) {num1=parseFloat(x);
+    num2=parseFloat(y);
+    let result= num1-num2;
+    let rounded= Math.round(result * 10) / 10;
+  return rounded;} 
+function multiply (x,y) {num1=parseFloat(x);
+    num2=parseFloat(y);
+    let result= num1*num2;
+    let rounded= Math.round(result * 10) / 10;
+  return rounded; }
+function operate(operator,x,y){if (operator==="+"){return add(x,y)}
+else if(operator==="-"){ return subtract(x,y) }
+else if (operator==="*"){ return multiply(x,y) }
+else if (operator==="/"){ return divide(x,y) }
+}
+
+
+
+    </script>
+    </body>
+    </html>
