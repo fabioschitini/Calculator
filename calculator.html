@@ -6,45 +6,54 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="all"> 
     <h1 id="display" style="z-index: 1; position: absolute; top: 0px; left: 0px;" >
-    <h1 id="num1"></h1>
+    
 <h1 id="operator"></h1>
 <h1 id="yolo" ></h1>
 <h1 id="result"></h1>    
 <h1 id="decimal"></h1>    
+<h1 id="signal"> </h1>
+<h1 id="percentage"> </h1>
+<h1 id="del"> </h1>
 
-        
+    
 
     </h1>
-    <div style="z-index: 2; position: absolute; top: 100px; left: 0px;" id="Supercontainer"> 
+    <div  id="Supercontainer"> 
 
     <div class="container1">
-        <button id="1"> 1</button>
-        <button id="2"> 2</button>
-        <button id="3" > 3 </button>
-        <button id="4">4 </button>
-        <button id="5">5</button>
-        <button id="6">6 </button>
-        <button id="7">7 </button>
-        <button id="8"> 8</button>
-        <button id="9"> 9</button>
-        <button id="0" >0 </button>
-        <button id="=" >=</button>
-        <button id="clear" >clear</button>
-        <button id="." >.</button>
+
+      <div id="numbers">
+       </div>
+      <button id="clear" class="unique" >C</button>
+      <button id="+/-" class="unique">+/-</button>
+      <button id="%" class="unique">%</button>
+      <button id="/" class="operators">/</button>
+      <button id="7" class="digits">7 </button>
+      <button id="8" class="digits"> 8</button>
+      <button id="9"class="digits"> 9</button>
+      <button id="*" class="operators">*</button>
+        <button id="4"class="digits">4 </button>
+        <button id="5"class="digits">5</button>
+        <button id="6"class="digits">6 </button>
+        <button id="-" class="operators">-</button>
+        <button id="1"class="digits"> 1</button>
+        <button id="2"class="digits"> 2</button>
+        <button id="3"class="digits" > 3 </button>
+        <button id="+" class="operators">+</button>
+        <button id="0" class="digits">0 </button>
+        <button id="." class="digits">.</button>
+        <button id="del"class="operators" >←</button>
+        <button id="=" class="operators">=</button>
+        
     </div>
 
-    <div class="container2">
-        <button id="+">+</button>
-        <button id="-">-</button>
-        <button id="/">/</button>
-        <button id="*">*</button>
-       
-    </div>
 
 </div>
 
-   
+</div>
+</div>
 
     <script>
         let operator=document.querySelector("#operator")
@@ -55,11 +64,13 @@
         let container=document.querySelector("#display")
         let result=document.querySelector("#result")
         result.value=""
-        let para=document.querySelector("#num1")
+        let para=document.querySelector("#numbers")
         para.textContent=""
         let yep=document.querySelector("#yolo")
-
-       let yolo=  btn.forEach( btn=>btn.addEventListener("click",e=>e.target.id))
+        let signal=document.querySelector("#signal")
+        let percentage=document.querySelector("#percentage")
+        let del=document.querySelector("#del")
+       
 
         let display=function (){ btn.map(btn=>btn.addEventListener("click",function(e){
             
@@ -67,6 +78,7 @@
 
             if(num==="+"||num==="-"||num==="*"||num==="/"){  if(result.value===""){operator.value=num
      yep.value=para.textContent  
+     console.log(num)
              
               }
                    else{operator.value=num;
@@ -74,7 +86,7 @@
               yep.value=para.textContent
               result.value="" } }
 
-            else if(num==="="){console.log(result.value)
+            else if(num==="="){
               para.textContent=result.value
             }
             
@@ -86,17 +98,28 @@
             }
             else if(operator.value==="+"||operator.value==="-"||operator.value==="*"||operator.value==="/"){
                      if(result.value===""){para.textContent=""
-                     console.log("yolo")
                     para.textContent+=num
-                     console.log(yep.value)
                      result.value= operate(operator.value,yep.value,para.textContent)
-              
+                     
                     }
-                     else{console.log("yolo")
-                    para.textContent+=num
-                    console.log(yep.value)
+                     else{
+
+                    if(num==="+/-"){ 
+               signal.value=para.textContent
+                 para.textContent=- signal.value
+               }
+               else if (num==="%"){percentage.value=para.textContent
+                 para.textContent=percentage.value/100
+               }
+               else if(num==="del"){
+                 console.log(typeof para.textContent)
+                 del.value=para.textContent
+                para.textContent=del.value.slice(0,del.value.length-1)
+               }
+                    else  para.textContent+=num
                      result.value= operate(operator.value,yep.value,para.textContent)
-                    console.log(result.value)}
+                     console.log("yo2")
+                    }
                      }
 
             else if(num==="."){
@@ -106,20 +129,35 @@
                  
                  
                }
+               else if (num==="%"){percentage.value=para.textContent
+                 para.textContent=percentage.value/100
+            
+               }
 
-            else  {para.textContent+=num}
+               else if (num==="+/-"){ 
+                signal.value=para.textContent
+                 para.textContent=- signal.value
+            
+               }
+               else if(num==="del"){
+                 console.log(typeof para.textContent)
+                 del.value=para.textContent
+                para.textContent=del.value.slice(0,del.value.length-1)
+               }
+
+            else  {para.textContent+=num
+            console.log(num)}
 
         
          
-        }))
-    
-    }
+
+        }))}
 
   display()
       
  function divide(x,y){num1=parseFloat(x);
     num2=parseFloat(y);
-    if(num2===0){return "Divinding by zero? Man, go back to scholl"}
+    if(num2===0){return "lol"}
     let result= num1/num2;
     let rounded= Math.round(result * 10) / 10;
   return rounded; }
