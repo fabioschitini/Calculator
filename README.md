@@ -43,7 +43,6 @@ link Live preview:https://fabioschitini.github.io/Calculator/
 
 GitHub: [fabioschitini](https://github.com/fabioschitini)
 
-GitHub: https://github.com/fabioschitini
 
 
 
