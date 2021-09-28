@@ -41,7 +41,7 @@ link Live preview:https://fabioschitini.github.io/Calculator/
 
 ## Author
 
-fabioschitini
+GitHub: [fabioschitini](https://github.com/fabioschitini)
 
 GitHub: https://github.com/fabioschitini
 
