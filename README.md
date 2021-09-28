@@ -11,13 +11,13 @@ link Live preview:https://fabioschitini.github.io/Calculator/
 
 # Built with
 
-# Technologies
+## Technologies
 
 * HTML
 * CSS
 * JS
 
-# Tools
+## Tools
 
 * Visual Studio Code
 * Linux terminal
@@ -31,15 +31,15 @@ link Live preview:https://fabioschitini.github.io/Calculator/
 * Tried to maintain clean code.
 * Cross tested on Firefox and Chromium based browsers.
 
-#Summary
+# Summary
 
-#What I learned
+## What I learned
 
 * Better knowledge of Javascript.
 * Learned to add keyboard support.
 * A lot of minor things.
 
-# Author
+## Author
 
 fabioschitini
 
